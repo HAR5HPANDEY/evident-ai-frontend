@@ -17,7 +17,7 @@ function App() {
     setExtractedText(null)
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/check', {
+      const response = await fetch('https://evident-ai-backend.onrender.com/check', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message }),
@@ -47,7 +47,7 @@ function App() {
       const formData = new FormData()
       formData.append('file', file)
 
-      const response = await fetch('http://127.0.0.1:8000/check-image', {
+      const response = await fetch('https://evident-ai-backend.onrender.com/check-image', {
         method: 'POST',
         body: formData,
       })
