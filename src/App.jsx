@@ -57,50 +57,49 @@ function App() {
     }
   }
 
- return (
+  return (
     <div className="min-h-screen bg-[#0a0a12] text-white overflow-hidden">
 
       {/* Soft glowing gradient header */}
       <div className="relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-700/40 via-purple-900/20 to-transparent pointer-events-none" />
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-purple-600/30 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute -top-20 left-1/4 w-[400px] h-[400px] bg-pink-500/20 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-700/40 via-blue-900/20 to-transparent pointer-events-none" />
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/30 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute -top-20 left-1/4 w-[400px] h-[400px] bg-cyan-500/20 rounded-full blur-[100px] pointer-events-none" />
 
         {/* Nav */}
         <nav className="relative flex items-center justify-between px-6 md:px-12 py-6 max-w-7xl mx-auto">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-md bg-gradient-to-br from-purple-400 to-pink-400" />
-            <span className="font-semibold text-lg">EVIDENT AI</span>
+            <div className="w-7 h-7 rounded-md bg-gradient-to-br from-blue-400 to-cyan-400" />
+            <span className="font-extrabold text-lg tracking-tight">EVIDENT AI</span>
           </div>
-          <span className="text-sm text-purple-200/70 hidden sm:block px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+          <span className="text-sm text-blue-200/70 hidden sm:block px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
             AI Fact-Check Agent
           </span>
         </nav>
 
         {/* Hero */}
         <div className="relative max-w-3xl mx-auto text-center px-6 pt-8 pb-14">
-          <span className="inline-block text-xs font-medium px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-purple-200 mb-6 backdrop-blur-sm">
+          <span className="inline-block text-xs font-medium px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-blue-200 mb-6 backdrop-blur-sm">
             ✦ AI-Powered Fact Checking
           </span>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight">
-            Know What's True
-            <br />
-            Before You Share
-          </h1>
+        <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-medium leading-[1.1] tracking-wide">
+  Know What's True
+  <br />
+  Before You Share
+</h1>
 
-          <p className="text-purple-100/60 mt-5 text-base sm:text-lg max-w-xl mx-auto">
+          <p className="text-blue-100/60 mt-5 text-base sm:text-lg max-w-xl mx-auto font-normal">
             Paste any message or upload a screenshot. Get an evidence-backed verdict in seconds — no guesswork, just sources.
           </p>
         </div>
       </div>
 
-      
       {/* Main tool card */}
       <div className="max-w-2xl mx-auto px-4 sm:px-6 pb-16">
-        <div className="bg-[#12121c] border border-white/10 rounded-2xl shadow-2xl overflow-hidden">
+        <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden">
 
-          {/* Fake "browser bar" like the reference image, ties into the dashboard-preview aesthetic */}
+          {/* Fake "browser bar" */}
           <div className="flex items-center gap-1.5 px-4 py-3 border-b border-white/5 bg-white/[0.02]">
             <span className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
             <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
@@ -113,13 +112,13 @@ function App() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Paste the message you want to fact-check..."
-              className="w-full h-28 bg-black/30 text-white rounded-xl p-4 outline-none border border-white/10 focus:border-purple-500 transition resize-none placeholder:text-slate-500 text-sm sm:text-base"
+              className="w-full h-28 bg-black/30 text-white rounded-xl p-4 outline-none border border-white/10 focus:border-blue-500 transition resize-none placeholder:text-slate-500 text-sm sm:text-base"
             />
 
             <button
               onClick={handleCheckText}
               disabled={loading}
-              className="mt-3 w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-xl transition text-sm sm:text-base"
+              className="mt-3 w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold py-3 rounded-xl transition text-sm sm:text-base"
             >
               {loading ? 'Checking...' : 'Check This Claim'}
             </button>
@@ -130,7 +129,7 @@ function App() {
               <div className="flex-1 h-px bg-white/10" />
             </div>
 
-            <label className="w-full flex items-center justify-center gap-2 border border-dashed border-white/15 hover:border-purple-500 rounded-xl py-3 cursor-pointer transition text-slate-300 text-sm">
+            <label className="w-full flex items-center justify-center gap-2 border border-dashed border-white/15 hover:border-blue-500 rounded-xl py-3 cursor-pointer transition text-slate-300 text-sm">
               📷 Upload a Screenshot
               <input
                 type="file"
@@ -144,7 +143,7 @@ function App() {
         </div>
 
         {extractedText && (
-          <div className="mt-4 bg-[#12121c] border border-white/10 rounded-xl p-4">
+          <div className="mt-4 bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-xl p-4">
             <p className="text-xs text-slate-500 uppercase tracking-wide mb-2">Extracted from image</p>
             <p className="text-slate-400 text-sm">{extractedText}</p>
           </div>
@@ -159,7 +158,7 @@ function App() {
         {result && (
           <div className="mt-4 space-y-3">
             {!result.claims_found && (
-              <div className="bg-[#12121c] border border-white/10 rounded-xl p-4 text-slate-400 text-center text-sm">
+              <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-xl p-4 text-slate-400 text-center text-sm">
                 <p className="mb-2">No checkable factual claim was found.</p>
                 {result.no_claim_reason && (
                   <p className="text-xs text-slate-500 italic">{result.no_claim_reason}</p>
@@ -177,7 +176,7 @@ function App() {
         )}
       </div>
 
-      {/* Trust strip, mirrors reference's "trusted by" section, adapted to feature highlights */}
+      {/* Trust strip */}
       <div className="border-t border-white/5 py-10">
         <p className="text-center text-xs text-slate-600 uppercase tracking-wide mb-6">
           Built with
@@ -207,7 +206,7 @@ function VerdictCard({ item }) {
   const badgeStyle = verdictStyles[item.verdict] || verdictStyles.Unverifiable
 
   return (
-    <div className="bg-[#12121c] border border-white/10 rounded-xl p-5 sm:p-6">
+    <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-xl p-5 sm:p-6">
       <p className="text-slate-300 italic mb-3 text-sm sm:text-base">"{item.claim}"</p>
 
       <div className="flex items-center gap-2 flex-wrap">
@@ -235,7 +234,7 @@ function VerdictCard({ item }) {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-purple-400 hover:text-purple-300 text-xs sm:text-sm underline break-all"
+                  className="text-blue-400 hover:text-blue-300 text-xs sm:text-sm underline break-all"
                 >
                   {url}
                 </a>
