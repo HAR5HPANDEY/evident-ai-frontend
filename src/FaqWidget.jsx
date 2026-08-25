@@ -19,7 +19,7 @@ function FaqWidget() {
     <>
       {/* Hint bubble */}
       {showHint && !isOpen && (
-<div className="fixed bottom-24 right-6 max-w-[220px] bg-white/[0.06] backdrop-blur-2xl border border-white/10 rounded-xl rounded-br-none px-4 py-3 shadow-2xl z-50 animate-bounce">          <button
+<div className="fixed bottom-24 right-4 sm:right-6 max-w-[180px] sm:max-w-[220px] bg-white/[0.06] backdrop-blur-2xl border border-white/10 rounded-xl rounded-br-none px-3 sm:px-4 py-2.5 sm:py-3 shadow-2xl z-50 animate-bounce text-xs sm:text-sm">   <button
             onClick={() => setShowHint(false)}
             className="absolute -top-2 -right-2 w-5 h-5 bg-[#1e1e28] border border-white/10 rounded-full text-xs text-slate-300 flex items-center justify-center hover:bg-[#2a2a36]"
             aria-label="Dismiss"

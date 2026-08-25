@@ -63,9 +63,8 @@ function App() {
       {/* Soft glowing gradient header */}
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-700/40 via-blue-900/20 to-transparent pointer-events-none" />
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-600/30 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute -top-20 left-1/4 w-[400px] h-[400px] bg-cyan-500/20 rounded-full blur-[100px] pointer-events-none" />
-
+<div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] bg-blue-600/30 rounded-full blur-[80px] sm:blur-[120px] pointer-events-none" />
+<div className="absolute -top-20 left-1/4 w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] bg-cyan-500/20 rounded-full blur-[70px] sm:blur-[100px] pointer-events-none" />
         {/* Nav */}
         <nav className="relative flex items-center justify-between px-6 md:px-12 py-6 max-w-7xl mx-auto">
           <div className="flex items-center gap-2">
