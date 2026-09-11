@@ -17,56 +17,68 @@ function FaqWidget() {
 
   return (
     <>
-      {/* Hint bubble */}
+      {/* Hint tag — looks like a pinned note corner */}
       {showHint && !isOpen && (
-<div className="fixed bottom-24 right-4 sm:right-6 max-w-[180px] sm:max-w-[220px] bg-white/[0.06] backdrop-blur-2xl border border-white/10 rounded-xl rounded-br-none px-3 sm:px-4 py-2.5 sm:py-3 shadow-2xl z-50 animate-bounce text-xs sm:text-sm">   <button
+        <div className="fixed bottom-24 right-4 sm:right-6 max-w-[190px] sm:max-w-[210px] bg-[#EDE6D3] text-[#0D1520] rounded-sm px-4 py-3 shadow-xl z-50 border-l-4 border-[#C9A24B]">
+          <button
             onClick={() => setShowHint(false)}
-            className="absolute -top-2 -right-2 w-5 h-5 bg-[#1e1e28] border border-white/10 rounded-full text-xs text-slate-300 flex items-center justify-center hover:bg-[#2a2a36]"
+            className="absolute -top-2 -right-2 w-5 h-5 bg-[#0D1520] text-[#EDE6D3] rounded-full text-xs flex items-center justify-center"
             aria-label="Dismiss"
           >
             ✕
           </button>
-          <p className="text-slate-200 text-sm">
-            👋 Got a question or facing an issue? Click here for help!
-          </p>
+          <p className="text-[10px] tracking-[0.15em] text-[#0D1520]/45 mb-1">NOTE</p>
+          <p className="text-sm leading-snug">Questions about how this works? Open the case notes.</p>
         </div>
       )}
 
-      {/* Floating button */}
+      {/* Floating tab — styled like a filing tab, not a chat bubble */}
       <button
         onClick={handleButtonClick}
-className="fixed bottom-6 right-6 w-14 h-14 rounded-full bg-white/[0.06] backdrop-blur-2xl border border-white/10 shadow-[0_0_30px_rgba(168,85,247,0.25)] flex items-center justify-center text-2xl transition hover:shadow-[0_0_40px_rgba(168,85,247,0.4)] z-50"        aria-label="Help"
+        className="fixed bottom-6 right-6 h-14 px-5 bg-[#C9A24B] text-[#0D1520] rounded-sm shadow-xl flex items-center gap-2 font-serif font-semibold text-sm tracking-wide transition hover:bg-[#d9b566] z-50"
+        aria-label="Help"
       >
-        {isOpen ? '✕' : '💬'}
+        {isOpen ? '✕ Close' : '? Notes'}
       </button>
 
-      {/* Chat panel */}
+      {/* Panel — a memo pad, not a chat window */}
       {isOpen && (
-<div className="fixed bottom-24 right-6 w-80 max-w-[calc(100vw-3rem)] max-h-[70vh] bg-white/[0.06] backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl shadow-purple-900/20 flex flex-col z-50 overflow-hidden">          <div className="bg-gradient-to-r from-purple-900/40 to-pink-900/30 border-b border-white/10 px-4 py-3">
-            <h3 className="text-white font-semibold">Help & FAQ</h3>
-            <p className="text-purple-200/60 text-xs">Common questions about this tool</p>
+        <div className="fixed bottom-24 right-6 w-80 max-w-[calc(100vw-3rem)] max-h-[70vh] bg-[#EDE6D3] text-[#0D1520] rounded-sm shadow-2xl flex flex-col z-50 overflow-hidden border-t-4 border-[#C9A24B]">
+
+          <div className="px-4 pt-4 pb-3 border-b border-dashed border-[#0D1520]/20">
+            <p className="text-[10px] tracking-[0.15em] text-[#0D1520]/45">CASE NOTES</p>
+            <h3 className="font-serif text-lg leading-tight">How this works</h3>
           </div>
 
-          <div className="overflow-y-auto flex-1 p-3 space-y-2">
+          <div className="overflow-y-auto flex-1 px-4 py-3 space-y-1">
             {faqData.map((item, index) => (
-              <div key={index} className="bg-white/[0.03] rounded-xl overflow-hidden border border-white/5">
+              <div
+                key={index}
+                className={`border-b border-dashed border-[#0D1520]/15 last:border-b-0 ${
+                  activeIndex === index ? 'pb-3' : ''
+                }`}
+              >
                 <button
                   onClick={() => toggleQuestion(index)}
-                  className="w-full text-left px-4 py-3 text-slate-200 text-sm font-medium flex justify-between items-center hover:bg-white/[0.04] transition"
+                  className="w-full text-left py-3 flex justify-between items-start gap-3 group"
                 >
-                  {item.question}
-                  <span className="text-slate-500 ml-2">
+                  <span className="text-sm font-medium leading-snug">{item.question}</span>
+                  <span className="text-[#0D1520]/40 font-serif text-lg leading-none shrink-0 group-hover:text-[#0D1520]/70">
                     {activeIndex === index ? '−' : '+'}
                   </span>
                 </button>
 
                 {activeIndex === index && (
-                  <div className="px-4 pb-3 text-slate-400 text-sm leading-relaxed">
+                  <p className="text-sm text-[#0D1520]/70 leading-relaxed pr-2">
                     {item.answer}
-                  </div>
+                  </p>
                 )}
               </div>
             ))}
+          </div>
+
+          <div className="px-4 py-2 border-t border-dashed border-[#0D1520]/20">
+            <p className="text-[10px] tracking-[0.15em] text-[#0D1520]/35">END OF FILE</p>
           </div>
         </div>
       )}
