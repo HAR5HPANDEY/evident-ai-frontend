@@ -95,6 +95,24 @@ function App() {
           against real sources, and tell you plainly what's true.
         </p>
       </section>
+      
+            {/* Feature strip */}
+      <section className="max-w-5xl mx-auto px-5 sm:px-8 pb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-sm overflow-hidden">
+          <div className="bg-[#0D1520] p-5">
+            <p className="font-serif text-2xl text-[#C9A24B]">100+</p>
+            <p className="text-sm text-[#B7BEC9] mt-1">languages read from screenshots, including Hindi, Spanish, Arabic and Chinese</p>
+          </div>
+          <div className="bg-[#0D1520] p-5">
+            <p className="font-serif text-2xl text-[#C9A24B]">Multi-source</p>
+            <p className="text-sm text-[#B7BEC9] mt-1">every claim is checked against several search results, not just one guess</p>
+          </div>
+          <div className="bg-[#0D1520] p-5">
+            <p className="font-serif text-2xl text-[#C9A24B]">Cited</p>
+            <p className="text-sm text-[#B7BEC9] mt-1">every verdict links back to the actual sources it was checked against</p>
+          </div>
+        </div>
+      </section>
 
       {/* Working area */}
       <section className="max-w-5xl mx-auto px-5 sm:px-8 pb-16 grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-6">
